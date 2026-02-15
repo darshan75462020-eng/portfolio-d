@@ -8,9 +8,9 @@ function Footer() {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-socials">
-          <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="mailto:your@email.com">Email</a>
+          <a href="https://github.com/darshan75462020-eng" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/dharshan-gangadhar75/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="mailto:dharshanofll@gmail.com">Email</a>
         </div>
         
         <div className="footer-info">
