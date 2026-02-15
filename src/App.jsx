@@ -8,30 +8,53 @@ import Contact from "./sections/Contact";
 import Footer from "./components/Footer";
 
 function App() {
+  // Logic to determine initial theme (LocalStorage > System Preference > Default Dark)
   const getInitialTheme = () => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) return savedTheme === "dark";
-    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+    // Check system preference
+    const userPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    return userPrefersDark; 
   };
 
+  // State initialization using lazy initializer
   const [dark, setDark] = useState(() => getInitialTheme());
 
+  // Effect to apply theme class and save to localStorage
   useEffect(() => {
-    document.body.classList.remove("dark", "light");
-    document.body.classList.add(dark ? "dark" : "light");
+    // Toggles 'dark' class; removes it if dark is false
+    document.body.classList.toggle("dark", dark);
+    
+    // Optional: add 'light' class specifically if your global.css requires it
+    document.body.classList.toggle("light", !dark);
+
     localStorage.setItem("theme", dark ? "dark" : "light");
   }, [dark]);
 
+  // Handler for the theme toggle
+  const toggleTheme = () => setDark(prevDark => !prevDark);
+
   return (
-    <>
-      <Navbar dark={dark} setDark={setDark} />
-      <Hero />
-      <About />
-      <Projects />
-      <Skills />
-      <Contact />
+    <div className="app-container">
+      <Navbar 
+        isDark={dark} 
+        toggleTheme={toggleTheme} 
+      />
+      
+      <main>
+        {/* Sections wrapped in main for better SEO/Accessibility */}
+        <section id="home">
+          <Hero />
+        </section>
+        
+        <About />
+        <Skills />
+        <Projects />
+        <Contact />
+      </main>
+
       <Footer />
-    </>
+    </div>
   );
 }
 

@@ -1,41 +1,42 @@
-import { useEffect, useState } from "react";
-import skills from "../data/skills";
+import React from "react";
+// Change line 3 to:
+import "../styles/global.css";
 
-export default function Skills() {
-  const [animate, setAnimate] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setAnimate(true), 200);
-    return () => clearTimeout(timer);
-  }, []);
+const Skills = () => {
+  const skillCategories = [
+    {
+      title: "Frontend",
+      skills: ["HTML5", "CSS3", "JavaScript", "React", "Tailwind CSS"],
+    },
+    {
+      title: "AI & Tools",
+      skills: ["Prompt Engineering", "ChatGPT API", "Git & GitHub", "Vercel"],
+    },
+    {
+      title: "Backend",
+      skills: ["Node.js", "Express", "MongoDB", "Python"],
+    },
+  ];
 
   return (
-    <section id="skills" className="skills-section">
-      <h2>Skills</h2>
-
+    <section className="skills" id="skills">
+      <h2 className="section-title fade-in show">Technical Skills</h2>
       <div className="skills-grid">
-        {skills.map((group, index) => (
-          <div key={index} className="skill-group">
-            <h3>{group.category}</h3>
-
-            {group.items.map((skill, i) => (
-              <div key={i} className="skill-item">
-                <span>{skill.name}</span>
-
-                <div className="skill-bar">
-                  <div
-                    className="skill-progress"
-                    style={{
-                      width: animate ? `${skill.level}%` : "0%",
-                    }}
-                    aria-label={`${skill.name} proficiency ${skill.level}%`}
-                  />
+        {skillCategories.map((category, index) => (
+          <div key={index} className="skill-category-card fade-in show">
+            <h3>{category.title}</h3>
+            <div className="skill-items">
+              {category.skills.map((skill, i) => (
+                <div key={i} className="skill-pill">
+                  {skill}
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         ))}
       </div>
     </section>
   );
-}
+};
+
+export default Skills;

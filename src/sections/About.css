@@ -1,29 +1,81 @@
-.about {
-  padding: 100px 10%;
-  text-align: center;
-  background: var(--card-bg);
-  color: var(--text);
-  transition: background 0.3s ease, color 0.3s ease;
+/* =========================
+   ABOUT SECTION
+========================= */
 
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+.about {
+  padding: clamp(80px, 10vh, 120px) 8%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg); /* Keeps it consistent with Hero */
+  position: relative;
+}
+
+/* The Frosted Glass Container */
+.about-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: clamp(40px, 5vw, 60px);
+  max-width: 900px;
+  width: 100%;
+  box-shadow: 0 20px 40px var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle accent glow in the corner of the card */
+.about-card::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -10%;
+  width: 200px;
+  height: 200px;
+  background: var(--accent-gradient);
+  filter: blur(80px);
+  opacity: 0.1;
+  pointer-events: none;
 }
 
 .about-container {
-  max-width: 760px;
-  margin: auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .about h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: var(--accent);
-  letter-spacing: 0.5px;
+  /* Using your global h2 style but removing the margin-bottom reset if needed */
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  margin-bottom: 1.5rem;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
 }
 
 .about p {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   line-height: 1.8;
   color: var(--secondary-text);
-  margin: auto;
+  max-width: 70ch;
+  margin: 0 auto;
+}
+
+/* Highlight important words */
+.about p strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 768px) {
+  .about-card {
+    padding: 30px 20px;
+    border-radius: 16px;
+  }
 }

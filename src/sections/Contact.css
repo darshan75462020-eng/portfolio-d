@@ -1,67 +1,89 @@
+/* =========================
+   CONTACT SECTION
+========================= */
+
 .contact {
-  padding: 80px 10%;
-  text-align: center;
-  background: var(--section-bg);
-  transition: background 0.3s ease;
+  padding: clamp(80px, 12vh, 150px) 8%;
+  background: var(--bg);
+  display: flex;
+  justify-content: center;
 }
 
-.contact h2 {
-  font-size: 2.5rem;
-  margin-bottom: 40px;
+.contact-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  padding: clamp(40px, 6vw, 70px);
+  border-radius: 24px;
+  max-width: 700px;
+  width: 100%;
+  box-shadow: 0 20px 40px var(--shadow);
+  text-align: center;
+}
+
+.contact-subtitle {
+  color: var(--secondary-text);
+  margin-bottom: 2.5rem;
+  font-size: 1.1rem;
 }
 
 .contact-form {
-  max-width: 600px;
-  margin: auto;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
+/* Input & Textarea Refinement */
 .contact-form input,
 .contact-form textarea {
-  padding: 14px;
-  border-radius: 10px;
+  width: 100%;
+  padding: 16px;
+  border-radius: 12px;
   border: 1px solid var(--border);
-  outline: none;
-  background: var(--card-bg);
+  background: rgba(255, 255, 255, 0.02); /* Slight transparent layer */
   color: var(--text);
-  transition: 0.25s ease;
-}
-
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-  color: var(--muted);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  outline: none;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
+  background: rgba(255, 255, 255, 0.05);
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(56,189,248,0.15);
-}
-
-.contact-form button {
-  padding: 14px;
-  border-radius: 10px;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-  background: var(--accent);
-  color: var(--bg);
-  transition: 0.25s ease;
-}
-
-.contact-form button:hover {
+  box-shadow: 0 0 15px rgba(14, 165, 233, 0.15);
   transform: translateY(-2px);
-  box-shadow: 0 15px 30px rgba(56,189,248,0.25);
 }
 
+/* Reusing your Global btn-primary logic but making it full width */
+.contact-form .btn-primary {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  font-size: 1.1rem;
+  margin-top: 10px;
+}
+
+/* Success/Error States */
 .success {
   color: #22c55e;
-  margin-top: 10px;
+  font-weight: 500;
+  margin-top: 15px;
 }
 
 .error {
   color: #ef4444;
-  margin-top: 10px;
+  font-weight: 500;
+  margin-top: 15px;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 600px) {
+  .contact-card {
+    padding: 30px 20px;
+  }
 }

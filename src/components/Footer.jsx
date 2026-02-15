@@ -1,7 +1,25 @@
+import React from "react";
+import "../styles/global.css";
+
 function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="footer">
-      <p>© 2026 Dharshan. Built with React ⚡</p>
+      <div className="footer-container">
+        <div className="footer-socials">
+          <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="mailto:your@email.com">Email</a>
+        </div>
+        
+        <div className="footer-info">
+          <p>© {currentYear} <span className="highlight">Dharshan</span>. Built with React & Node.js ⚡</p>
+          <p className="footer-motto">Turning ideas into AI-powered reality.</p>
+        </div>
+
+        <a href="#hero" className="scroll-top">↑</a>
+      </div>
     </footer>
   );
 }
