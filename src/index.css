@@ -1,0 +1,26 @@
+/* ===== THEME VARIABLES ===== */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #0f172a;
+  --secondary-text: #475569;
+  --card-bg: #f1f5f9;
+  --accent: #6366f1;
+}
+
+/* DARK MODE VARIABLES */
+body.dark {
+  --bg-color: #0f172a;
+  --text-color: #f8fafc;
+  --secondary-text: #cbd5e1;
+  --card-bg: #1e293b;
+  --accent: #8b5cf6;
+}
+
+/* APPLY VARIABLES */
+body {
+  margin: 0;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
