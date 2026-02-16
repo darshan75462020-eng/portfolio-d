@@ -1,20 +1,28 @@
 import React from "react";
-// Change line 3 to:
+// Changed line 3 to:
 import "../styles/global.css";
 
 const Skills = () => {
   const skillCategories = [
     {
       title: "Frontend",
-      skills: ["HTML5", "CSS3", "JavaScript", "React", "Tailwind CSS"],
+      skills: ["HTML5", "CSS3", "JavaScript", "React", "Tailwind CSS", "Bootstrap"],
     },
     {
       title: "AI & Tools",
-      skills: ["Prompt Engineering", "ChatGPT API", "Git & GitHub", "Vercel"],
+      skills: ["Prompt Engineering", "ChatGPT API", "Git & GitHub","Figma", "VS Code", "Gemini Pro" ,"Claud Opus", "Google colab", "Google Antigravity"],
     },
     {
       title: "Backend",
-      skills: ["Node.js", "Express", "MongoDB", "Python"],
+      skills: ["Node.js","Java", "Python"],
+    },
+     {
+      title: "Database",
+      skills: ["MySQL", "SQLite"],
+    },
+     {
+      title: "Cloud & Deployment",
+      skills: ["Vercel", "GitHub Pages", "Netlify", "Google Cloud Platform"],
     },
   ];
 

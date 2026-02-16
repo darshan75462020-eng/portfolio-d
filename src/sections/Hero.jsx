@@ -10,7 +10,7 @@ const Hero = () => {
         </h1>
         <h2 className="fade-in show">Full Stack Developer | AI Enthusiast</h2>
         <p className="fade-in show">
-          I build modern web applications with React, Node.js and AI-powered solutions.
+          I build modern web applications with AI-powered solutions and intelligence.
         </p>
 
         <div className="hero-buttons fade-in show">
