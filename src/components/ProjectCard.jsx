@@ -1,18 +1,49 @@
-function ProjectCard({ project }) {
-  return (
-    <div className="project-card">
-      <h3>{project.title}</h3>
-      <p>{project.description}</p>
+import React from "react";
+import { Github, ExternalLink, Code2 } from "lucide-react"; // Import icons
 
-      <div className="tech-stack">
-        {project.tech.map((t) => (
-          <span key={t}>{t}</span>
-        ))}
+function ProjectCard({ project }) {
+  const isAI = project.tech.some(t => 
+    t.toLowerCase().includes('ai') || t.toLowerCase().includes('python')
+  );
+
+  return (
+    <div className={`project-card ${isAI ? 'ai-highlight' : ''}`}>
+      <div className="project-image-container">
+        {project.image ? (
+          <img src={project.image} alt={project.title} className="project-img" />
+        ) : (
+          /* Adding an icon to the empty state so it looks intentional */
+          <div className="project-placeholder-gradient">
+            <Code2 size={48} className="placeholder-icon" />
+          </div>
+        )}
+        <div className="project-category-badge">{project.category || "Development"}</div>
       </div>
 
-      <div className="project-links">
-        <a href={project.live} className="btn-secondary">Live</a>
-        <a href={project.github} className="btn-secondary">GitHub</a>
+      <div className="project-card-content">
+        <h3>{project.title}</h3>
+        <p>{project.description}</p>
+
+        <div className="tech-stack">
+          {project.tech.map((t) => (
+            <span key={t} className="tech-pill">{t}</span>
+          ))}
+        </div>
+
+        <div className="project-links">
+          {project.live && (
+            <a href={project.live} target="_blank" rel="noopener noreferrer" className="project-link-btn">
+              <ExternalLink size={18} />
+              <span>Live Demo</span>
+            </a>
+          )}
+          {project.github && (
+            <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link-btn github">
+              <Github size={18} />
+              <span>Source</span>
+            </a>
+          )}
+        </div>
       </div>
     </div>
   );

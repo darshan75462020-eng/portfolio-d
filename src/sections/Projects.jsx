@@ -1,35 +1,21 @@
+import React from "react";
 import projects from "../data/projects";
+import ProjectCard from "../components/ProjectCard"; // Make sure the path to your ProjectCard file is correct
 
 export default function Projects() {
   return (
     <section id="projects" className="projects-section">
-      <h2>Projects</h2>
+      <div className="section-header">
+        <h2 className="section-title">Featured Work</h2>
+        <p className="section-subtitle">
+          Exploring the intersection of Full-Stack development and Artificial Intelligence.
+        </p>
+      </div>
 
       <div className="projects-grid">
         {projects.map((project, index) => (
-          <div className="project-card" key={index}>
-            <h3>{project.title}</h3>
-            <p>{project.description}</p>
-
-            <div className="tech-stack">
-              {project.tech.map((t, i) => (
-                <span key={i}>{t}</span>
-              ))}
-            </div>
-
-            <div className="project-links">
-              {project.live && (
-                <a href={project.live} target="_blank" rel="noopener noreferrer">
-                  Live
-                </a>
-              )}
-              {project.github && (
-                <a href={project.github} target="_blank" rel="noopener noreferrer">
-                  GitHub
-                </a>
-              )}
-            </div>
-          </div>
+          /* We pass the project data as a 'prop' to the ProjectCard component */
+          <ProjectCard project={project} key={index} />
         ))}
       </div>
     </section>

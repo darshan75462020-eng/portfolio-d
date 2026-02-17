@@ -5,32 +5,38 @@ const Hero = () => {
   return (
     <section className="hero" id="hero">
       <div className="hero-left">
-        <h1 className="fade-in show">
-          Hi, I'm <span className="highlight">Dharshan</span>
+        {/* New: Status Badge */}
+        <div className="status-badge fade-in show">
+          <span className="pulse-dot"></span>
+          Available for New Projects
+        </div>
+
+        <h1 className="hero-title fade-in show">
+          Designing the future with <span className="text-gradient">AI & Code.</span>
         </h1>
-        <h2 className="fade-in show">Full Stack Developer | AI Enthusiast</h2>
-        <p className="fade-in show">
-          I build modern web applications with AI-powered solutions and intelligence.
+        
+        <p className="hero-subtitle fade-in show">
+          Hi, I'm <span className="highlight-text">Dharshan</span>. I build high-performance 
+          full-stack applications with integrated artificial intelligence.
         </p>
 
         <div className="hero-buttons fade-in show">
-          {/* Updated class names to match global.css */}
-          <a href="/resume.pdf" download className="btn-primary">
-            Download Resume
+          <a href="#contact" className="btn-primary">
+            Start a Project
           </a>
-          <a href="#contact" className="btn-secondary">
-            Contact Me
+          <a href="/resume.pdf" download className="btn-secondary">
+            View Resume
           </a>
         </div>
       </div>
 
       <div className="hero-right fade-in show">
         <div className="profile-img-container">
-          {/* Add your actual image path here */}
           <img src="/profile.png" alt="Dharshan" className="profile-img" />
-          
-          {/* Decorative background glow behind the image */}
           <div className="img-glow"></div>
+          {/* New: Floating decorative elements */}
+          <div className="floating-card card-1">🚀 Full Stack</div>
+          <div className="floating-card card-2">🤖 AI Agent</div>
         </div>
       </div>
     </section>

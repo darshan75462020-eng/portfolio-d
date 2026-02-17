@@ -1,13 +1,9 @@
 import React, { useState } from "react";
+import { Send, CheckCircle2, AlertCircle } from "lucide-react"; // Added for feedback
 import "./Contact.css";
 
 const Contact = () => {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState(null);
 
@@ -18,7 +14,6 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (loading) return;
-
     setLoading(true);
     setStatus(null);
 
@@ -48,54 +43,73 @@ const Contact = () => {
   return (
     <section className="contact" id="contact">
       <div className="contact-card fade-in show">
-        <h2 className="section-title">Get In Touch</h2>
-        <p className="contact-subtitle">
-          Have a project in mind or just want to say hi? I'll get back to you as soon as possible.
-        </p>
+        <div className="contact-header">
+          <h2 className="section-title">Get In Touch</h2>
+          <p className="contact-subtitle">
+            Have a project in mind or just want to say hi? I'll get back to you as soon as possible.
+          </p>
+        </div>
 
         <form onSubmit={handleSubmit} className="contact-form">
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            value={form.name}
-            onChange={handleChange}
-            required
-          />
+          <div className="form-group">
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              value={form.name}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            value={form.email}
-            onChange={handleChange}
-            required
-          />
+          <div className="form-group">
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              value={form.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-          <textarea
-            name="message"
-            placeholder="Your Message"
-            rows="5"
-            value={form.message}
-            onChange={handleChange}
-            required
-          />
+          <div className="form-group">
+            <textarea
+              name="message"
+              placeholder="Your Message"
+              rows="5"
+              value={form.message}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
           <button 
             type="submit" 
-            className={`btn-primary ${loading ? 'loading' : ''}`} 
+            className={`btn-primary submit-btn ${loading ? 'loading' : ''}`} 
             disabled={loading}
           >
-            {loading ? "Sending..." : "Send Message"}
+            {loading ? (
+              <span className="btn-content">Sending...</span>
+            ) : (
+              <span className="btn-content">
+                Send Message <Send size={18} />
+              </span>
+            )}
           </button>
 
-          {/* Status Messages with a bit more flair */}
           <div className="status-container">
             {status === "success" && (
-              <p className="success">✨ Message sent successfully! I'll be in touch.</p>
+              <div className="status-message success">
+                <CheckCircle2 size={18} />
+                <span>Message sent successfully! I'll be in touch.</span>
+              </div>
             )}
             {status === "error" && (
-              <p className="error">⚠️ Something went wrong. Please try again later.</p>
+              <div className="status-message error">
+                <AlertCircle size={18} />
+                <span>Something went wrong. Please try again later.</span>
+              </div>
             )}
           </div>
         </form>
